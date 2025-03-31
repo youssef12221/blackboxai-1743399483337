@@ -1,0 +1,31 @@
+{
+  "version": "1.8.9",
+  "mainClass": "net.minecraft.client.main.Main",
+  "libraries": [
+    {
+      "name": "net.minecraft:launchwrapper:1.12"
+    },
+    {
+      "name": "org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209"
+    }
+  ],
+  "assets": "1.8",
+  "jvmArgs": [
+    "-Xmx2G",
+    "-XX:+UseConcMarkSweepGC",
+    "-XX:+CMSIncrementalMode",
+    "-XX:-UseAdaptiveSizePolicy",
+    "-Xmn128M"
+  ],
+  "cheatSignatures": {
+    "memoryPatterns": [
+      "1.8_ghostclient_pattern",
+      "1.8_autoclicker_pattern"
+    ],
+    "blacklistedProcesses": [
+      "wurst.exe",
+      "vape.exe",
+      "1.8_cheatengine.dll"
+    ]
+  }
+}
