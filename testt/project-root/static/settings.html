@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunder Client Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+        }
+        .settings-card {
+            background-color: #1e293b;
+            border-radius: 0.75rem;
+        }
+        .tab-button {
+            transition: all 0.2s ease;
+        }
+        .tab-button.active {
+            background-color: #334155;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center mb-6">
+            <button onclick="java.loadMainPage()" class="mr-4 p-2 rounded-full hover:bg-slate-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </button>
+            <h1 class="text-2xl font-bold">Thunder Client Settings</h1>
+        </div>
+        
+        <div class="flex mb-6 space-x-2">
+            <button class="tab-button active px-4 py-2 rounded-lg">General</button>
+            <button class="tab-button px-4 py-2 rounded-lg">Performance</button>
+            <button class="tab-button px-4 py-2 rounded-lg">Controls</button>
+            <button class="tab-button px-4 py-2 rounded-lg">Cosmetics</button>
+        </div>
+        
+        <div class="settings-card p-6 mb-6">
+            <h2 class="text-lg font-semibold mb-4">General Settings</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <span>Launch Minimized</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-700 rounded-full peer-checked:bg-blue-500 transition-colors">
+                            <div class="dot absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <span>Auto Update</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-700 rounded-full peer-checked:bg-blue-500 transition-colors">
+                            <div class="dot absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-card p-6">
+            <h2 class="text-lg font-semibold mb-4">Account</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Username</label>
+                    <input type="text" class="w-full px-4 py-2 rounded bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Save Settings
+                </button>
+                <button onclick="java.refreshAuthToken()" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors mt-4">
+                    Reset Authentication Token
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
