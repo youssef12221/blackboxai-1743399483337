@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunder Client</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .start-btn {
+            transition: all 0.2s ease;
+        }
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center">
+    <div class="text-center">
+        <h1 class="text-5xl font-bold text-white mb-8">THUNDER CLIENT</h1>
+        
+        <div class="mb-6 w-64">
+            <input type="text" id="username" 
+                   class="w-full px-4 py-2 rounded bg-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-green-500" 
+                   placeholder="Username">
+        </div>
+        
+    </div>
+
+    <div class="flex space-x-4 mt-6">
+            <button id="startBtn" class="start-btn px-8 py-3 bg-green-600 text-white font-bold rounded-full text-lg">
+                START
+            </button>
+            <button onclick="java.openSettings()" class="px-4 py-3 bg-slate-700 text-white rounded-full hover:bg-slate-600 transition-colors">
+                Settings
+            </button>
+        </div>
+
+        <script>
+            document.getElementById('startBtn').addEventListener('click', () => {
+                const username = document.getElementById('username').value;
+                if (username) {
+                    java.startGame(username);
+                }
+            });
+        </script>
+</body>
+</html>
